@@ -20,10 +20,8 @@ def generate_text(chain, length):
 def main():
     text = []
     with open('poe.txt', 'r') as f:
-        for line in f:
-            for word in line.split():
-                text.append(word)
+        text = [word for line in f for word in line.split()]
     chain = markov_chain(text)
     print(generate_text(chain, 500))
-    
+
 main()
